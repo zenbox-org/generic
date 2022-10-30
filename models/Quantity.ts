@@ -2,7 +2,7 @@ import { z } from 'zod'
 import { getDuplicatesRefinement } from 'zenbox-util/zod'
 import { isEqualBy } from 'zenbox-util/lodash'
 import { BigNumber } from 'zenbox-util/bignumber'
-import { Conversion, ConversionSchema } from '../../sales/models/Conversion'
+import { Conversion, ConversionSchema } from './Conversion'
 
 export const QuantitySchema = z.object({
   value: z.instanceof(BigNumber),

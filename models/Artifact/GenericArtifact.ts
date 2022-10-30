@@ -1,7 +1,6 @@
 import { z } from 'zod'
 import { getDuplicatesRefinement } from 'zenbox-util/zod'
 import { IdSchema } from '../Id'
-import { PausedUntilWrapperSchema } from '../../../process/models/PausedUntilWrapper'
 
 export const GenericArtifactSchema = z.object({
   id: IdSchema,
@@ -9,8 +8,8 @@ export const GenericArtifactSchema = z.object({
   // isFinished: z.boolean(), // not needed because artifact.isFinished === isDefined(artifact.value)
   createdBy: IdSchema,
   createdOn: z.date(),
+  pausedUntil: z.date().optional(),
 })
-  .extend(PausedUntilWrapperSchema.shape)
 
 export const GenericArtifactsSchema = z.array(GenericArtifactSchema)
   .superRefine(getDuplicatesRefinement('GenericArtifact', parseGenericArtifactUid))
