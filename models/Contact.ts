@@ -1,9 +1,9 @@
-import { z } from 'zod'
-import { getDuplicatesRefinement } from 'zenbox-util/zod'
-import { Protocol, ProtocolSchema } from './Protocol'
 import { escape } from 'zenbox-util/regexp'
+import { getDuplicatesRefinement } from 'zenbox-util/zod'
+import { z } from 'zod'
+import { Protocol, ProtocolSchema } from './Protocol'
 
-export const ContactPathSchema = z.string().min(1)
+export const ContactPathSchema = z.string().min(1).transform(c => c.trim())
 
 export type ContactPath = z.infer<typeof ContactPathSchema>
 

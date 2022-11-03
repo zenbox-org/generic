@@ -1,5 +1,5 @@
-import { Language, LanguageSchema, parseLanguageUid } from '../models/Language'
 import { getFinder, getInserter } from 'zenbox-util/zod'
+import { Language, LanguageSchema, parseLanguageUid } from '../models/Language'
 
 export const allLanguages: Language[] = []
 
@@ -20,4 +20,9 @@ export const Russian = addLanguage({
 export const Ukrainian = addLanguage({
   name: 'Ukrainian',
   iso639Code: 'uk',
+})
+
+export const Romanian = addLanguage({
+  name: 'Romanian',
+  iso639Code: 'ro',
 })

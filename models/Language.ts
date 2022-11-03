@@ -1,10 +1,11 @@
-import { z } from 'zod'
-import { getDuplicatesRefinement } from 'zenbox-util/zod'
 import { isEqualBy } from 'zenbox-util/lodash'
+import { getDuplicatesRefinement } from 'zenbox-util/zod'
+import { z } from 'zod'
+import { ISO639CodeSchema } from './ISO639Code'
 
 export const LanguageSchema = z.object({
   name: z.string(),
-  iso639Code: z.string().min(2),
+  iso639Code: ISO639CodeSchema,
 }).describe('Language')
 
 export const LanguagesSchema = z.array(LanguageSchema)

@@ -1,8 +1,10 @@
-export function spreadName(firstName: string, lastName: string | undefined, nickname: string | undefined) {
-  const nameArr = [firstName, lastName]
+import { fromStringToId } from '../Id'
+
+export function spreadName(firstName?: string, lastName?: string, nickname?: string, uid?: string) {
+  const name = `${firstName} ${lastName}`
   return {
-    uid: nameArr.join(''),
-    name: nameArr.join(' '),
+    uid: uid || fromStringToId(name),
+    name,
     nickname: nickname || firstName,
   }
 }
