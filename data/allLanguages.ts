@@ -26,3 +26,13 @@ export const Romanian = addLanguage({
   name: 'Romanian',
   iso639Code: 'ro',
 })
+
+export const Telugu = addLanguage({
+  name: 'Telugu',
+  iso639Code: 'te',
+})
+
+export const Tamil = addLanguage({
+  name: 'Tamil',
+  iso639Code: 'ta',
+})
