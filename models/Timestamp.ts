@@ -1,12 +1,13 @@
-import { z } from 'zod'
 import { BigNumber } from 'zenbox-util/bignumber'
+import { z } from 'zod'
 
-// Timestamp is measured in milliseconds since 1970-01-01
-
-export const TimestampSchema = z.number().int()
-
-export const BigTimestampSchema = z.instanceof(BigNumber).refine(value => !value /* check for undefined */ || value.isGreaterThan(0), { message: 'Must be positive' })
+/**
+ * Milliseconds since 1970-01-01
+ */
+export const TimestampSchema = z.number().int().nonnegative()
 
 export type Timestamp = z.infer<typeof TimestampSchema>;
 
-export type BigTimestamp = z.infer<typeof BigTimestampSchema>;
+export const TimestampBigNumSchema = z.instanceof(BigNumber).refine(value => !value.isNegative(), 'Must be positive or zero')
+
+export type TimestampBig = z.infer<typeof TimestampBigNumSchema>;
