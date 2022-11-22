@@ -1,21 +1,37 @@
-import { z } from 'zod'
+import { IdSchema } from 'libs/generic/models/Id'
+import { isEqualBy } from 'zenbox-util/lodash'
 import { getDuplicatesRefinement } from 'zenbox-util/zod'
-import { identity } from 'lodash-es'
+import { z } from 'zod'
 
-export const getTagUid = identity
+export interface Tag {
+  id: string
+  parent?: Tag
+}
 
-export const TagSchema = z.string().min(1).regex(/^[\w\d]+$/)
+export const TagSchema: z.ZodSchema<Tag> = z.lazy(() => z.object({
+  id: IdSchema,
+  parent: TagSchema.optional(),
+})).describe('InfluencerTag')
 
 export const TagsSchema = z.array(TagSchema)
-  .default([])
-  .superRefine(getDuplicatesRefinement('Tag', getTagUid))
+  .superRefine(getDuplicatesRefinement('InfluencerTag', parseTagUid))
 
-export type Tag = z.infer<typeof TagSchema>
+export const TagUidSchema = z.object({
+  id: IdSchema,
+})
 
-export function validateTag(tag: Tag): Tag {
+export type TagUid = z.infer<typeof TagUidSchema>
+
+export function parseTag(tag: Tag): Tag {
   return TagSchema.parse(tag)
 }
 
-export function validateTags(tags: Tag[]): Tag[] {
+export function parseTags(tags: Tag[]): Tag[] {
   return TagsSchema.parse(tags)
 }
+
+export function parseTagUid(tagUid: TagUid): TagUid {
+  return TagUidSchema.parse(tagUid)
+}
+
+export const isEqualTag = (a: Tag) => (b: Tag) => isEqualBy(a, b, parseTagUid)
