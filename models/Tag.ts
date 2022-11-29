@@ -1,8 +1,15 @@
 import { IdSchema } from 'libs/generic/models/Id'
 import { isEqualBy } from 'zenbox-util/lodash'
-import { getDuplicatesRefinement } from 'zenbox-util/zod'
+import { getArraySchema } from 'zenbox-util/zod'
 import { z } from 'zod'
 
+/**
+ * @deprecated Use libs/tree/models/Node.ts instead
+ *
+ * Diff(Node, Tag):
+ * + name: NameSchema
+ * - id: IdSchema
+ */
 export interface Tag {
   id: string
   parent?: Tag
@@ -11,10 +18,9 @@ export interface Tag {
 export const TagSchema: z.ZodSchema<Tag> = z.lazy(() => z.object({
   id: IdSchema,
   parent: TagSchema.optional(),
-})).describe('InfluencerTag')
+})).describe('Tag')
 
-export const TagsSchema = z.array(TagSchema)
-  .superRefine(getDuplicatesRefinement('InfluencerTag', parseTagUid))
+export const TagsSchema = getArraySchema(TagSchema, parseTagUid)
 
 export const TagUidSchema = z.object({
   id: IdSchema,

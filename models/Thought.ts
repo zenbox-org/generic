@@ -1,8 +1,8 @@
+import { isArray, isString } from 'lodash-es'
+import { isEqualBy } from 'zenbox-util/lodash'
+import { getDuplicatesRefinement } from 'zenbox-util/zod'
 import { z } from 'zod'
 import { Id } from './Id'
-import { isArray, isString } from 'lodash-es'
-import { getDuplicatesRefinement } from 'zenbox-util/zod'
-import { isEqualBy } from 'zenbox-util/lodash'
 
 export interface Thought {
   title: string
@@ -95,6 +95,8 @@ export const renderThoughtLikeMD = renderThoughtLikeMDAtLevel(0)
 export const renderThoughtLikesMD = renderThoughtLikesMDAtLevel(0)
 
 export const $t = thought
+
+export const $tl = thoughtLike
 
 export const $ts = thoughtLikes
 

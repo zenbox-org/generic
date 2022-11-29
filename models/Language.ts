@@ -9,10 +9,11 @@ export const LanguageSchema = z.object({
 }).describe('Language')
 
 export const LanguagesSchema = z.array(LanguageSchema)
-  .superRefine(getDuplicatesRefinement('Language', parseLanguageUid))
+  .superRefine(getDuplicatesRefinement('Language', l => l.name))
+  .superRefine(getDuplicatesRefinement('Language', l => l.iso639Code))
 
 export const LanguageUidSchema = LanguageSchema.pick({
-  name: true,
+  iso639Code: true,
 })
 
 export type Language = z.infer<typeof LanguageSchema>
