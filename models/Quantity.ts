@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { getDuplicatesRefinement } from 'zenbox-util/zod'
-import { isEqualBy } from 'zenbox-util/lodash'
+import { isEqualByD } from 'zenbox-util/lodash'
 import { BigNumber } from 'zenbox-util/bignumber'
 import { Conversion, ConversionSchema } from './Conversion'
 
@@ -36,7 +36,7 @@ export function parseQuantityUid(quantityUid: QuantityUid): QuantityUid {
   return QuantityUidSchema.parse(quantityUid)
 }
 
-export const isEqualQuantity = (a: Quantity) => (b: Quantity) => isEqualBy(a, b, parseQuantityUid)
+export const isEqualQuantity = (a: Quantity) => (b: Quantity) => isEqualByD(a, b, parseQuantityUid)
 
 export function quantity(value: BigNumber.Value, conversion: Conversion) {
   return parseQuantity({ value: new BigNumber(value), conversion })

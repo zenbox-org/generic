@@ -1,4 +1,4 @@
-import { isEqualBy } from 'zenbox-util/lodash'
+import { isEqualByD } from 'zenbox-util/lodash'
 import { getDuplicatesRefinement } from 'zenbox-util/zod'
 import { z } from 'zod'
 import { ISO639CodeSchema } from './ISO639Code'
@@ -32,4 +32,4 @@ export function parseLanguageUid(languageUid: LanguageUid): LanguageUid {
   return LanguageUidSchema.parse(languageUid)
 }
 
-export const isEqualLanguage = (a: Language) => (b: Language) => isEqualBy(a, b, parseLanguageUid)
+export const isEqualLanguage = (a: Language) => (b: Language) => isEqualByD(a, b, parseLanguageUid)

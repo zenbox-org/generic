@@ -1,4 +1,4 @@
-import { isEqualBy } from 'zenbox-util/lodash'
+import { isEqualByD } from 'zenbox-util/lodash'
 import { getArraySchema } from 'zenbox-util/zod'
 import { z } from 'zod'
 import { PermissionsSchema } from './Permission'
@@ -31,4 +31,4 @@ export function parseRoleUid(roleUid: RoleUid): RoleUid {
   return RoleUidSchema.parse(roleUid)
 }
 
-export const isEqualRole = (a: Role) => (b: Role) => isEqualBy(a, b, parseRoleUid)
+export const isEqualRole = (a: Role) => (b: Role) => isEqualByD(a, b, parseRoleUid)

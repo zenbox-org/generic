@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { getDuplicatesRefinement } from 'zenbox-util/zod'
-import { isEqualBy } from 'zenbox-util/lodash'
+import { isEqualByD } from 'zenbox-util/lodash'
 
 export const UrlSchema = z.string().url().min(1).describe('Url')
 
@@ -25,4 +25,4 @@ export function parseUrlUid(urlUid: UrlUid): UrlUid {
   return UrlUidSchema.parse(urlUid)
 }
 
-export const isEqualUrl = (a: Url) => (b: Url) => isEqualBy(a, b, parseUrlUid)
+export const isEqualUrl = (a: Url) => (b: Url) => isEqualByD(a, b, parseUrlUid)

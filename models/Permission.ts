@@ -1,6 +1,6 @@
 import { IdSchema } from 'libs/generic/models/Id'
 import { NotesSchema } from 'libs/generic/models/Notes'
-import { isEqualBy } from 'zenbox-util/lodash'
+import { isEqualByD } from 'zenbox-util/lodash'
 import { getArraySchema } from 'zenbox-util/zod'
 import { z } from 'zod'
 
@@ -31,4 +31,4 @@ export function parsePermissionUid(permissionUid: PermissionUid): PermissionUid 
   return PermissionUidSchema.parse(permissionUid)
 }
 
-export const isEqualPermission = (a: Permission) => (b: Permission) => isEqualBy(a, b, parsePermissionUid)
+export const isEqualPermission = (a: Permission) => (b: Permission) => isEqualByD(a, b, parsePermissionUid)

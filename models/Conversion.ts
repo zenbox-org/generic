@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { getDuplicatesRefinement } from 'zenbox-util/zod'
-import { isEqualBy } from 'zenbox-util/lodash'
+import { isEqualByD } from 'zenbox-util/lodash'
 import { NameSchema } from './Name'
 import { BigNumber } from 'zenbox-util/bignumber'
 
@@ -39,4 +39,4 @@ export function parseConversionUid(conversionUid: ConversionUid): ConversionUid 
   return ConversionUidSchema.parse(conversionUid)
 }
 
-export const isEqualConversion = (a: Conversion) => (b: Conversion) => isEqualBy(a, b, parseConversionUid)
+export const isEqualConversion = (a: Conversion) => (b: Conversion) => isEqualByD(a, b, parseConversionUid)

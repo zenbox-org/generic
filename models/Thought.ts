@@ -1,5 +1,5 @@
 import { isArray, isString } from 'lodash-es'
-import { isEqualBy } from 'zenbox-util/lodash'
+import { isEqualByD } from 'zenbox-util/lodash'
 import { getDuplicatesRefinement } from 'zenbox-util/zod'
 import { z } from 'zod'
 import { Id } from './Id'
@@ -43,7 +43,7 @@ export function validateThoughtUid(thoughtUid: ThoughtUid): ThoughtUid {
   return ThoughtUidSchema.parse(thoughtUid)
 }
 
-export const isEqualThought = (a: Thought) => (b: Thought) => isEqualBy(a, b, validateThoughtUid)
+export const isEqualThought = (a: Thought) => (b: Thought) => isEqualByD(a, b, validateThoughtUid)
 
 export function thought(title: string, children: ThoughtLike[] = []): Thought {
   return validateThought({ title, children: children.map(thoughtLike) })

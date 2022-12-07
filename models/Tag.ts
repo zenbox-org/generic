@@ -1,5 +1,5 @@
 import { IdSchema } from 'libs/generic/models/Id'
-import { isEqualBy } from 'zenbox-util/lodash'
+import { isEqualByD } from 'zenbox-util/lodash'
 import { getArraySchema } from 'zenbox-util/zod'
 import { z } from 'zod'
 
@@ -40,4 +40,4 @@ export function parseTagUid(tagUid: TagUid): TagUid {
   return TagUidSchema.parse(tagUid)
 }
 
-export const isEqualTag = (a: Tag) => (b: Tag) => isEqualBy(a, b, parseTagUid)
+export const isEqualTag = (a: Tag) => (b: Tag) => isEqualByD(a, b, parseTagUid)

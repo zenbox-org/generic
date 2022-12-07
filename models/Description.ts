@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { getDuplicatesRefinement } from 'zenbox-util/zod'
-import { isEqualBy } from 'zenbox-util/lodash'
+import { isEqualByD } from 'zenbox-util/lodash'
 
 export const DescriptionSchema = z.string().describe('Description')
 
@@ -25,4 +25,4 @@ export function parseDescriptionUid(descriptionUid: DescriptionUid): Description
   return DescriptionUidSchema.parse(descriptionUid)
 }
 
-export const isEqualDescription = (a: Description) => (b: Description) => isEqualBy(a, b, parseDescriptionUid)
+export const isEqualDescription = (a: Description) => (b: Description) => isEqualByD(a, b, parseDescriptionUid)
