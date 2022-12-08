@@ -1,5 +1,5 @@
 import { ContactSchema } from './Contact'
-import { testSamples } from 'zenbox-util/jest/testSamples'
+import { testSamples } from 'libs/utils/jest/testSamples'
 
 testSamples(ContactSchema, [
   'https://www.instagram.com/example/',

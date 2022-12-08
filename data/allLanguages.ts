@@ -1,4 +1,4 @@
-import { getFinder, getInserter } from 'zenbox-util/zod'
+import { getFinder, getInserter } from 'libs/utils/zod'
 import { Language, LanguageSchema, parseLanguageUid } from '../models/Language'
 
 export const allLanguages: Language[] = []

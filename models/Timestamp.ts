@@ -1,4 +1,4 @@
-import { BigNumber } from 'zenbox-util/bignumber'
+import { BigNumber } from 'libs/utils/bignumber'
 import { z } from 'zod'
 
 /**

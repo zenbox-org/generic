@@ -2,7 +2,7 @@ import { HourNumbers, IANAZone, WeekdayNumbers } from 'luxon'
 import { strict as assert } from 'assert'
 import { parseDateTimeFilter } from '../DateTimeFilter'
 import { Timezone } from '../TimezoneSchema'
-import { Friday, Monday, Saturday, Sunday } from 'zenbox-util/date.constant'
+import { Friday, Monday, Saturday, Sunday } from 'libs/utils/date.constant'
 
 export function hoursDaysDateTimeFilter(fromHour: HourNumbers, toHour: HourNumbers, fromDay: WeekdayNumbers, toDay: WeekdayNumbers, timezone: Timezone) {
   assert(IANAZone.isValidZone(timezone))

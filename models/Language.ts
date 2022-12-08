@@ -1,5 +1,5 @@
-import { isEqualByD } from 'zenbox-util/lodash'
-import { getDuplicatesRefinement } from 'zenbox-util/zod'
+import { isEqualByD } from 'libs/utils/lodash'
+import { getDuplicatesRefinement } from 'libs/utils/zod'
 import { z } from 'zod'
 import { ISO639CodeSchema } from './ISO639Code'
 

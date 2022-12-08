@@ -1,7 +1,7 @@
 import { z } from 'zod'
-import { getDuplicatesRefinement } from 'zenbox-util/zod'
-import { isEqualByD } from 'zenbox-util/lodash'
-import { BigNumber } from 'zenbox-util/bignumber'
+import { getDuplicatesRefinement } from 'libs/utils/zod'
+import { isEqualByD } from 'libs/utils/lodash'
+import { BigNumber } from 'libs/utils/bignumber'
 import { Conversion, ConversionSchema } from './Conversion'
 
 export const QuantitySchema = z.object({

@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { BigNumber } from 'zenbox-util/bignumber'
+import { BigNumber } from 'libs/utils/bignumber'
 
 export const DurationSchema = z.number().int().min(0) // milliseconds between two timestamps
 

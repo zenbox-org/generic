@@ -1,5 +1,5 @@
 import { substitutionRegExp, UrlPattern } from '../UrlPattern'
-import { expect } from 'zenbox-util/chai'
+import { expect } from 'libs/utils/chai'
 
 export function replaceUrlPattern(pattern: UrlPattern, replacements: Record<string, string>) {
   const entries = Object.entries(replacements)

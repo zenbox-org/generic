@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { getDuplicatesRefinement } from 'zenbox-util/zod'
+import { getDuplicatesRefinement } from 'libs/utils/zod'
 import { identity } from 'lodash-es'
 
 export const SortDirSchema = z.enum(['ASC', 'DESC']).describe('SortDir')

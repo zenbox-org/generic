@@ -1,6 +1,6 @@
 import { isArray, isString } from 'lodash-es'
-import { isEqualByD } from 'zenbox-util/lodash'
-import { getDuplicatesRefinement } from 'zenbox-util/zod'
+import { isEqualByD } from 'libs/utils/lodash'
+import { getDuplicatesRefinement } from 'libs/utils/zod'
 import { z } from 'zod'
 import { Id } from './Id'
 

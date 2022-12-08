@@ -1,7 +1,7 @@
 import { IdSchema } from 'libs/generic/models/Id'
 import { NotesSchema } from 'libs/generic/models/Notes'
-import { isEqualByD } from 'zenbox-util/lodash'
-import { getArraySchema } from 'zenbox-util/zod'
+import { isEqualByD } from 'libs/utils/lodash'
+import { getArraySchema } from 'libs/utils/zod'
 import { z } from 'zod'
 
 export const PermissionSchema = z.object({

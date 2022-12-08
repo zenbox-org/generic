@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { nail } from 'zenbox-util/string'
+import { nail } from 'libs/utils/string'
 
 export const NotesSchema = z.string().optional().transform(transformNotes)
 

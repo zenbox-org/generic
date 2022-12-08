@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { NumberIntervalSchema } from './NumberInterval'
-import { getDuplicatesRefinement } from 'zenbox-util/zod'
+import { getDuplicatesRefinement } from 'libs/utils/zod'
 import { TimezoneSchema } from './TimezoneSchema'
 
 // Instance members of [DateTime](https://moment.github.io/luxon/api-docs/index.html#datetime)

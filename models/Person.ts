@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { ContactSchema } from './Contact'
 import { IdSchema } from './Id'
-import { getDuplicatesRefinement } from 'zenbox-util/zod'
+import { getDuplicatesRefinement } from 'libs/utils/zod'
 
 export const PersonSchema = z.object({
   uid: IdSchema,

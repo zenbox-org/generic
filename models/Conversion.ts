@@ -1,8 +1,8 @@
 import { z } from 'zod'
-import { getDuplicatesRefinement } from 'zenbox-util/zod'
-import { isEqualByD } from 'zenbox-util/lodash'
+import { getDuplicatesRefinement } from 'libs/utils/zod'
+import { isEqualByD } from 'libs/utils/lodash'
 import { NameSchema } from './Name'
-import { BigNumber } from 'zenbox-util/bignumber'
+import { BigNumber } from 'libs/utils/bignumber'
 
 /**
  * Allows defining unit conversion (e.g. from km to m)

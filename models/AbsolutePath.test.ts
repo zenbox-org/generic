@@ -1,5 +1,5 @@
 import { AbsolutePathSchema } from './AbsolutePath'
-import { testSamples } from 'zenbox-util/jest/testSamples'
+import { testSamples } from 'libs/utils/jest/testSamples'
 
 testSamples(AbsolutePathSchema, [
   '/arst',

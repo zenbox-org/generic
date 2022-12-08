@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { getDuplicatesRefinement } from 'zenbox-util/zod'
-import { isEqualByD } from 'zenbox-util/lodash'
+import { getDuplicatesRefinement } from 'libs/utils/zod'
+import { isEqualByD } from 'libs/utils/lodash'
 
 export const DescriptionSchema = z.string().describe('Description')
 

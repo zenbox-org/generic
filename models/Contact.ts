@@ -1,5 +1,5 @@
-import { escape } from 'zenbox-util/regexp'
-import { getDuplicatesRefinement } from 'zenbox-util/zod'
+import { escape } from 'libs/utils/regexp'
+import { getDuplicatesRefinement } from 'libs/utils/zod'
 import { z } from 'zod'
 import { Protocol, ProtocolSchema } from './Protocol'
 
