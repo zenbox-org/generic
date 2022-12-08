@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { getDuplicatesRefinement } from 'libs/utils/zod'
-import { isEqualByD } from 'libs/utils/lodash'
+import { isEqualByD } from '../../utils/lodash'
+import { getDuplicatesRefinement } from '../../utils/zod'
 
 export const UrlSchema = z.string().url().min(1).describe('Url')
 

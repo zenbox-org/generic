@@ -1,7 +1,7 @@
 import { isArray, isString } from 'lodash-es'
-import { isEqualByD } from 'libs/utils/lodash'
-import { getDuplicatesRefinement } from 'libs/utils/zod'
 import { z } from 'zod'
+import { isEqualByD } from '../../utils/lodash'
+import { getDuplicatesRefinement } from '../../utils/zod'
 import { Id } from './Id'
 
 export interface Thought {

@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { ensure } from 'libs/utils/ensure'
+import { ensure } from '../../utils/ensure'
 
 export const idAllowedSymbols = ['\\w', '\\d', '-', '_', '.', ':']
 
