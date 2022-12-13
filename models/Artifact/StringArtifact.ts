@@ -1,6 +1,5 @@
-import { z } from 'zod'
-import { toUidFromSchema } from 'libs/utils/uid'
 import { getDuplicatesRefinement } from 'libs/utils/zod'
+import { z } from 'zod'
 import { GenericArtifactSchema, GenericArtifactUidSchema } from './GenericArtifact'
 
 export const StringArtifactSchema = GenericArtifactSchema.extend({
@@ -26,5 +25,5 @@ export function validateStringArtifacts(artifacts: StringArtifact[]): StringArti
 }
 
 export function getStringArtifactUid(artifactUid: StringArtifactUid) {
-  return toUidFromSchema(artifactUid, StringArtifactUidSchema)
+  return StringArtifactUidSchema.parse(artifactUid)
 }

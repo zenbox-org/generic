@@ -1,5 +1,5 @@
-import { z } from 'zod'
 import { nail } from 'libs/utils/string'
+import { z } from 'zod'
 
 export const NotesSchema = z.string().optional().transform(transformNotes)
 

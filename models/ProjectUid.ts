@@ -1,4 +1,3 @@
-
 import { Id, IdSchema } from './Id'
 
 export const ProjectUidSchema = IdSchema

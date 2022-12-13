@@ -1,5 +1,4 @@
 import { z } from 'zod'
-import { NumberIntervalSchema } from './NumberInterval'
 
 // NOTE: A single timezone has multiple offsets (because of daylight saving strategy)
 export const TimezoneOffsetSchema = z.number(/* of minutes */)

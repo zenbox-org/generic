@@ -1,5 +1,5 @@
-import { z } from 'zod'
 import { ensure } from 'libs/utils/ensure'
+import { z } from 'zod'
 
 export const OriginalSlugSchema = z.string().min(1)
 

@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { getProbabilityUid, ProbabilitySchema } from './Probability'
 import { Id } from './Id'
+import { getProbabilityUid, ProbabilitySchema } from './Probability'
 
 // Rating is probability of success
 export const RatingSchema = ProbabilitySchema

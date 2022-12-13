@@ -1,5 +1,5 @@
-import { z } from 'zod'
 import { BigNumber } from 'libs/utils/bignumber'
+import { z } from 'zod'
 
 export const GuesstimateSchema = z.instanceof(BigNumber).describe('Guesstimate')
 

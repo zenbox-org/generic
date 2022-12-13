@@ -1,6 +1,6 @@
-import { Tally } from '../Tally'
-import { isEqual } from 'lodash-es'
 import { BigNumber } from 'libs/utils/bignumber'
+import { isEqual } from 'lodash-es'
+import { Tally } from '../Tally'
 
 export function addTallyNumber<Key>(tallies: Tally<Key, number>[], key: Key, value: number) {
   const index = tallies.findIndex(s => isEqual(s.key, key))

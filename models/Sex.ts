@@ -1,6 +1,6 @@
-import { z } from 'zod'
 import { getDuplicatesRefinement } from 'libs/utils/zod'
 import { identity } from 'lodash-es'
+import { z } from 'zod'
 
 /**
  * More sexes must be represented with another model

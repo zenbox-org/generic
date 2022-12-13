@@ -1,8 +1,8 @@
-import { z } from 'zod'
 import { getDuplicatesRefinement } from 'libs/utils/zod'
-import { UrlArtifactSchema } from './Artifact/UrlArtifact'
+import { z } from 'zod'
 import { BooleanArtifactSchema } from './Artifact/BooleanArtifact'
 import { GenericArtifactUidSchema } from './Artifact/GenericArtifact'
+import { UrlArtifactSchema } from './Artifact/UrlArtifact'
 
 export const ArtifactSchema = z.union([UrlArtifactSchema, BooleanArtifactSchema])
 

@@ -1,5 +1,5 @@
-import { AbsolutePathSchema } from './AbsolutePath'
 import { testSamples } from 'libs/utils/jest/testSamples'
+import { AbsolutePathSchema } from './AbsolutePath'
 
 testSamples(AbsolutePathSchema, [
   '/arst',

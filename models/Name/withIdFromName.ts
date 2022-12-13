@@ -1,5 +1,5 @@
-import { Name } from '../Name'
 import { fromStringToId } from '../Id'
+import { Name } from '../Name'
 
 export function withIdFromName<Obj>($object: Obj & { name: Name }) {
   return {

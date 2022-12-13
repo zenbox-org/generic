@@ -1,6 +1,5 @@
-import { z } from 'zod'
-import { toUidFromSchema } from 'libs/utils/uid'
 import { getDuplicatesRefinement } from 'libs/utils/zod'
+import { z } from 'zod'
 import { UrlSchema } from '../Url'
 import { GenericArtifactSchema, GenericArtifactUidSchema } from './GenericArtifact'
 
@@ -29,5 +28,5 @@ export function validateUrlArtifacts(artifacts: UrlArtifactWithoutType[]): UrlAr
 }
 
 export function getUrlArtifactUid(artifactUid: UrlArtifactUid) {
-  return toUidFromSchema(artifactUid, UrlArtifactUidSchema)
+  return UrlArtifactUidSchema.parse(artifactUid)
 }

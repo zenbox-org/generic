@@ -1,5 +1,5 @@
-import { Url } from '../Url'
 import { fromStringToId } from '../Id'
+import { Url } from '../Url'
 
 /**
  * @deprecated

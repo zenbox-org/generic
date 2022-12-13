@@ -1,6 +1,5 @@
-import { z } from 'zod'
-import { toUidFromSchema } from 'libs/utils/uid'
 import { getDuplicatesRefinement } from 'libs/utils/zod'
+import { z } from 'zod'
 import { GenericArtifactSchema, GenericArtifactUidSchema } from './GenericArtifact'
 
 export const BooleanArtifactSchema = GenericArtifactSchema.extend({
@@ -26,5 +25,5 @@ export function validateBooleanArtifacts(artifacts: BooleanArtifact[]): BooleanA
 }
 
 export function getBooleanArtifactUid(artifactUid: BooleanArtifactUid) {
-  return toUidFromSchema(artifactUid, BooleanArtifactUidSchema)
+  return BooleanArtifactUidSchema.parse(artifactUid)
 }

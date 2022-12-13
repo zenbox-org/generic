@@ -1,6 +1,5 @@
-import { z } from 'zod'
-import { toUidFromSchema } from 'libs/utils/uid'
 import { getDuplicatesRefinement } from 'libs/utils/zod'
+import { z } from 'zod'
 
 /**
  * including from, excluding to
@@ -31,5 +30,5 @@ export function validatePeriods(periods: Period[]): Period[] {
 }
 
 export function getPeriodUid(periodUid: PeriodUid) {
-  return toUidFromSchema(periodUid, PeriodUidSchema)
+  return PeriodUidSchema.parse(periodUid)
 }

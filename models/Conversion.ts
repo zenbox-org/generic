@@ -1,8 +1,8 @@
-import { z } from 'zod'
-import { getDuplicatesRefinement } from 'libs/utils/zod'
-import { isEqualByD } from 'libs/utils/lodash'
-import { NameSchema } from './Name'
 import { BigNumber } from 'libs/utils/bignumber'
+import { isEqualByD } from 'libs/utils/lodash'
+import { getDuplicatesRefinement } from 'libs/utils/zod'
+import { z } from 'zod'
+import { NameSchema } from './Name'
 
 /**
  * Allows defining unit conversion (e.g. from km to m)

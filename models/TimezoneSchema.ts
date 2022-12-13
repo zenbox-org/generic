@@ -1,5 +1,5 @@
-import { z } from 'zod'
 import { IANAZone } from 'luxon'
+import { z } from 'zod'
 
 export const TimezoneSchema = z.string().refine(IANAZone.isValidZone)
 
