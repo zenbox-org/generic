@@ -1,3 +1,6 @@
+/**
+ * @see Mutator
+ */
 export type Mapper<In, Out> = (input: In) => Out
 
 export type MapperP<In, Out> = (input: In) => Promise<Out>
