@@ -5,6 +5,10 @@ export const NotesSchema = z.string().optional().transform(transformNotes)
 
 export type Notes = z.infer<typeof NotesSchema>
 
+export interface WithNotes {
+  notes?: string
+}
+
 export function validateNotes(notes: Notes) {
   return NotesSchema.parse(notes)
 }
