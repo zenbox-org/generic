@@ -12,3 +12,5 @@ export const GenericFunctionSchema = z.function(z.tuple([z.any()]).rest(z.any())
 export type GenericFunction = z.infer<typeof GenericFunctionSchema>
 
 export type ZodGenericFunction = ZodFunction<ZodTuple<[ZodAny], ZodAny>, ZodAny>
+
+export type GenFun<Inputs extends unknown[], Output> = (...i: Inputs) => Output
