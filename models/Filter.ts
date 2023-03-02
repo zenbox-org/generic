@@ -34,6 +34,8 @@ export const not = <Opt>(filter: Filter<Opt>): Filter<Opt> => (option: Opt) => !
 
 export const notP = <Opt>(filter: FilterP<Opt>): FilterP<Opt> => async (option: Opt) => !(await filter(option))
 
+export const and = <Opt>(filters: Filter<Opt>[]): Filter<Opt> => (option: Opt) => filters.every(filter => filter(option))
+
 export const or = <Opt>(filters: Filter<Opt>[]): Filter<Opt> => (option: Opt) => filters.some(filter => filter(option))
 
 export const without = <T>(objects: T[], filters: Filter<T>[]) => objects.every(a => !filters.some(f => f(a)))
