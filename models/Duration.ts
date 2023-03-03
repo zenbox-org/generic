@@ -1,4 +1,4 @@
-import { BigNumber } from 'libs/utils/bignumber'
+import { BigNumber } from 'libs/utils/BigNumber.utils'
 import { z } from 'zod'
 
 export const DurationSchema = z.number().int().min(0) // milliseconds between two timestamps

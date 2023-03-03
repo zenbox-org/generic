@@ -1,4 +1,4 @@
-import { BigNumber } from 'libs/utils/bignumber'
+import { BigNumber } from 'libs/utils/BigNumber.utils'
 import { isEqualByD } from 'libs/utils/lodash'
 import { getDuplicatesRefinement } from 'libs/utils/zod'
 import { z } from 'zod'

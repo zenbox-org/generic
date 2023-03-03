@@ -1,4 +1,4 @@
-import { BigNumber, multBigNumbers, num } from '../../utils/bignumber'
+import { BigNumber, multBigNumbers, num } from '../../utils/BigNumber.utils'
 import { todo } from '../../utils/todo'
 
 export type Estimator<Opt, Num> = (option: Opt) => Num

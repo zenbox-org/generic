@@ -1,4 +1,4 @@
-import { BigNumber } from 'libs/utils/bignumber'
+import { BigNumber } from 'libs/utils/BigNumber.utils'
 import { isEqual } from 'lodash-es'
 import { Tally } from '../Tally'
 
