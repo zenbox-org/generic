@@ -65,6 +65,10 @@ export function mailto(email: string) {
   return parseContact(`mailto:${email}`)
 }
 
-export function tel(phone: string) {
-  return parseContact(`tel://${phone}`)
+export function tel(telephone: string) {
+  return parseContact(`tel://${telClean(telephone)}`)
+}
+
+export function telClean(phone: string) {
+  return phone.replace(/[^+\d]/g, '')
 }
