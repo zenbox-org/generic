@@ -1,4 +1,4 @@
-import { BigNumber } from 'libs/utils/BigNumber.utils'
+import { BigNumber } from 'libs/utils/BigNumber/utils'
 import { z } from 'zod'
 
 /**

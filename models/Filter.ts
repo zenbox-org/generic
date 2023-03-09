@@ -4,23 +4,27 @@ import { isEqualByD, isEqualDC } from '../../utils/lodash'
 import { todo } from '../../utils/todo'
 import { Mapper } from './Mapper'
 
-export type Filter<Opt> = (option: Opt) => boolean
+export type Filter<Val> = (value: Val) => boolean
 
-export type FilterP<Opt> = (option: Opt) => Promise<boolean>
+export type FilterP<Val> = (value: Val) => Promise<boolean>
 
-export const AlwaysTrue = <Opt>(option: Opt) => true
+export type FilterOptional<Val> = (value: Val) => boolean | undefined
 
-export const AlwaysTrueP = async <Opt>(option: Opt) => true
+export type FilterOptionalP<Val> = (value: Val) => Promise<boolean | undefined>
 
-export const TodoFilter = <Opt>(option: Opt): boolean => { return todo() }
+export const AlwaysTrue = <Val>(value: Val) => true
 
-export const TodoFilterP = async <Opt>(option: Opt): Promise<boolean> => { return todo() }
+export const AlwaysTrueP = async <Val>(value: Val) => true
 
-export const getStaticFilterP = <Opt>(option: Opt) => async ($option: Opt) => equals(option, $option)
+export const TodoFilter = <Val>(value: Val): boolean => { return todo() }
 
-export const getStaticFilterByP = <Opt, CmpOpt>(option: Opt, mapper: Mapper<Opt, CmpOpt>) => async ($option: Opt) => isEqualByD(option, $option, mapper)
+export const TodoFilterP = async <Val>(value: Val): Promise<boolean> => { return todo() }
 
-export const getStaticMultiFilter = <Opt>(options: Opt[]) => async ($option: Opt) => options.find(isEqualDC($option)) !== undefined
+export const getStaticFilterP = <Val>(value: Val) => async ($value: Val) => equals(value, $value)
+
+export const getStaticFilterByP = <Val, CmpVal>(value: Val, mapper: Mapper<Val, CmpVal>) => async ($value: Val) => isEqualByD(value, $value, mapper)
+
+export const getStaticMultiFilter = <Val>(values: Val[]) => async ($value: Val) => values.find(isEqualDC($value)) !== undefined
 
 export const allFiltersPassedP = <Obj>(filters: FilterP<Obj>[]) => async (obj: Obj) => (await Promise.all(filters.map(f => f(obj)))).every(identity)
 
@@ -30,13 +34,13 @@ export const toFilter = <In, Out>(getter: (input: In) => Out) => (input: In) => 
 
 export const toFilterP = <In, Out>(getter: (input: In) => Promise<Out>) => async (input: In) => Boolean(await getter(input))
 
-export const not = <Opt>(filter: Filter<Opt>): Filter<Opt> => (option: Opt) => !filter(option)
+export const not = <Val>(filter: Filter<Val>): Filter<Val> => (value: Val) => !filter(value)
 
-export const notP = <Opt>(filter: FilterP<Opt>): FilterP<Opt> => async (option: Opt) => !(await filter(option))
+export const notP = <Val>(filter: FilterP<Val>): FilterP<Val> => async (value: Val) => !(await filter(value))
 
-export const and = <Opt>(filters: Filter<Opt>[]): Filter<Opt> => (option: Opt) => filters.every(filter => filter(option))
+export const and = <Val>(filters: Filter<Val>[]): Filter<Val> => (value: Val) => filters.every(filter => filter(value))
 
-export const or = <Opt>(filters: Filter<Opt>[]): Filter<Opt> => (option: Opt) => filters.some(filter => filter(option))
+export const or = <Val>(filters: Filter<Val>[]): Filter<Val> => (value: Val) => filters.some(filter => filter(value))
 
 export const without = <T>(objects: T[], filters: Filter<T>[]) => objects.every(a => !filters.some(f => f(a)))
 

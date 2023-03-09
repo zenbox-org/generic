@@ -1,4 +1,4 @@
-import { num } from 'libs/utils/BigNumber.utils'
+import { num } from 'libs/utils/BigNumber/utils'
 
 const scale = 10
 
