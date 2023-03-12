@@ -56,6 +56,10 @@ export function getFilterStubsP(names: string[]) {
   return names.map(getFilterStubP)
 }
 
+export type BiFilter<A, B = A> = (a: A, b: B) => boolean
+
+export type BiFilterP<A, B = A> = (a: A, b: B) => Promise<boolean>
+
 export const BooleanFilterSchema = z.function().args(z.boolean()).returns(z.boolean())
 
 export type BooleanFilter = z.infer<typeof BooleanFilterSchema>
