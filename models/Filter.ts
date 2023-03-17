@@ -26,10 +26,6 @@ export const getStaticFilterByP = <Val, CmpVal>(value: Val, mapper: Mapper<Val, 
 
 export const getStaticMultiFilter = <Val>(values: Val[]) => async ($value: Val) => values.find(isEqualDC($value)) !== undefined
 
-export const allFiltersPassedP = <Obj>(filters: FilterP<Obj>[]) => async (obj: Obj) => (await Promise.all(filters.map(f => f(obj)))).every(identity)
-
-export const allFiltersPassed = <Obj>(filters: Filter<Obj>[]) => (obj: Obj) => filters.map(f => f(obj)).every(identity)
-
 export const toFilter = <In, Out>(getter: (input: In) => Out) => (input: In) => Boolean(getter(input))
 
 export const toFilterP = <In, Out>(getter: (input: In) => Promise<Out>) => async (input: In) => Boolean(await getter(input))
@@ -39,6 +35,8 @@ export const not = <Val>(filter: Filter<Val>): Filter<Val> => (value: Val) => !f
 export const notP = <Val>(filter: FilterP<Val>): FilterP<Val> => async (value: Val) => !(await filter(value))
 
 export const and = <Val>(filters: Filter<Val>[]): Filter<Val> => (value: Val) => filters.every(filter => filter(value))
+
+export const andP = <Val>(filters: FilterP<Val>[]) => async (value: Val) => (await Promise.all(filters.map(filter => filter(value)))).every(identity)
 
 export const or = <Val>(filters: Filter<Val>[]): Filter<Val> => (value: Val) => filters.some(filter => filter(value))
 
