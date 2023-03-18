@@ -1,4 +1,4 @@
-import { BigNumber, multBigNumbers, num } from '../../utils/BigNumber/utils'
+import { BigNumber, multBigNumbers, num, one } from '../../utils/BigNumber/utils'
 import { todo } from '../../utils/todo'
 
 export type Estimator<Opt, Num> = (option: Opt) => Num
@@ -46,3 +46,9 @@ export const TodoEstimatorP = async <Opt, Num>(option: Opt): Promise<Num> => { r
 export const TodoEstimatorBigNumP = async <Opt>(option: Opt): Promise<BigNumber> => { return todo() }
 
 export const TodoEstimatorBigNum = <Opt>(option: Opt): BigNumber => { return todo() }
+
+export const invert = (n: BigNumber) => one.dividedBy(n)
+
+export const invertE = <Opt>(e: EstimatorBigNum<Opt>) => {
+  return (option: Opt) => one.dividedBy(e(option))
+}
