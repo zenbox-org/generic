@@ -1,10 +1,13 @@
 import { getDuplicatesRefinement } from 'libs/utils/zod'
 import { z } from 'zod'
 import { IdSchema } from './Id'
+import { NameSchema } from './Name'
+import { NotesSchema } from './Notes'
 
 export const TeamSchema = z.object({
   uid: IdSchema,
-  name: z.string().min(1),
+  name: NameSchema,
+  notes: NotesSchema,
 }).describe('Team')
 
 export const TeamsSchema = z.array(TeamSchema)
