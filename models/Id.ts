@@ -19,6 +19,10 @@ export function validateId(id: Id): Id {
   return IdSchema.parse(id)
 }
 
+export function getId<T extends WithId>(object: T) {
+  return object.id
+}
+
 export function byId(id: Id) {
   return (object: WithId) => object.id === id
 }

@@ -9,7 +9,7 @@ export const CountrySchema = z.object({
   notes: NotesSchema,
 }).describe('Country')
 
-export const CountrysSchema = getArraySchema(CountrySchema, parseCountryUid)
+export const CountriesSchema = getArraySchema(CountrySchema, parseCountryUid)
 
 export const CountryUidSchema = CountrySchema.pick({
   id: true,
@@ -23,8 +23,8 @@ export function parseCountry(country: Country): Country {
   return CountrySchema.parse(country)
 }
 
-export function parseCountrys(countrys: Country[]): Country[] {
-  return CountrysSchema.parse(countrys)
+export function parseCountries(countrys: Country[]): Country[] {
+  return CountriesSchema.parse(countrys)
 }
 
 export function parseCountryUid(countryUid: CountryUid): CountryUid {

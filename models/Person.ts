@@ -6,7 +6,7 @@ import { NameSchema } from './Name'
 import { NotesSchema } from './Notes'
 
 export const PersonSchema = z.object({
-  uid: IdSchema,
+  id: IdSchema,
   name: NameSchema,
   contacts: z.array(ContactSchema),
   notes: NotesSchema,
@@ -16,7 +16,7 @@ export const PersonsSchema = z.array(PersonSchema)
   .superRefine(getDuplicatesRefinement('Person', parsePersonUid))
 
 export const PersonUidSchema = PersonSchema.pick({
-  uid: true,
+  id: true,
 })
 
 export type Person = z.infer<typeof PersonSchema>
