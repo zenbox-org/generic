@@ -1,5 +1,7 @@
+import { identity } from 'remeda'
 import { z } from 'zod'
 import { ensure } from '../../utils/ensure'
+import { getArraySchema } from '../../utils/zod'
 
 export const idAllowedSymbols = ['\\w', '\\d', '-', '_', '.', ':']
 
@@ -9,7 +11,9 @@ const idRegExp = new RegExp(`^[${idAllowedSymbolsEscapedString}]+$`)
 
 const idReplaceUnwantedCharactersRegExp = new RegExp(`[^${idAllowedSymbolsEscapedString}]`, 'g')
 
-export const IdSchema = z.string().min(1).regex(idRegExp)
+export const IdSchema = z.string().min(1).regex(idRegExp).describe('Id')
+
+export const IdsSchema = getArraySchema(IdSchema, identity)
 
 export type Id = z.infer<typeof IdSchema>
 
