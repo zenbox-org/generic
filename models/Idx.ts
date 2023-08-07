@@ -1,6 +1,6 @@
 import { isEqualSC } from 'libs/utils/lodash'
 import { getArraySchema } from 'libs/utils/zod'
-import { identity } from 'lodash-es'
+import { identity } from 'remeda'
 import { z } from 'zod'
 
 export const IdxSchema = z.number().nonnegative().describe('Idx')

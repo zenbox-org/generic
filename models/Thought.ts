@@ -1,4 +1,4 @@
-import { isArray, isString } from 'lodash-es'
+import { isArray, isString } from 'remeda'
 import { z } from 'zod'
 import { isEqualByD } from '../../utils/lodash'
 import { getDuplicatesRefinement } from '../../utils/zod'

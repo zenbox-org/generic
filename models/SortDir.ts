@@ -1,5 +1,5 @@
 import { getDuplicatesRefinement } from 'libs/utils/zod'
-import { identity } from 'lodash-es'
+import { identity } from 'remeda'
 import { z } from 'zod'
 
 export const SortDirSchema = z.enum(['ASC', 'DESC']).describe('SortDir')

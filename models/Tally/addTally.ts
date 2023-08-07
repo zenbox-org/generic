@@ -1,9 +1,9 @@
 import { BigNumber } from 'libs/utils/BigNumber/utils'
-import { isEqual } from 'lodash-es'
+import { equals } from 'remeda'
 import { Tally } from '../Tally'
 
 export function addTallyNumber<Key>(tallies: Tally<Key, number>[], key: Key, value: number) {
-  const index = tallies.findIndex(s => isEqual(s.key, key))
+  const index = tallies.findIndex(s => equals(s.key, key))
   if (~index) {
     tallies[index].value += value
   } else {
@@ -13,7 +13,7 @@ export function addTallyNumber<Key>(tallies: Tally<Key, number>[], key: Key, val
 }
 
 export function addTallyBigNumber<Key>(tallies: Tally<Key, BigNumber>[], key: Key, value: BigNumber) {
-  const index = tallies.findIndex(s => isEqual(s.key, key))
+  const index = tallies.findIndex(s => equals(s.key, key))
   if (~index) {
     tallies[index].value = tallies[index].value.plus(value)
   } else {

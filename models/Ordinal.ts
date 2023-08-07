@@ -1,5 +1,5 @@
 import { getArraySchema } from 'libs/utils/zod'
-import { identity } from 'lodash-es'
+import { identity } from 'remeda'
 import { z } from 'zod'
 import { isEqualSC } from '../../utils/lodash'
 
