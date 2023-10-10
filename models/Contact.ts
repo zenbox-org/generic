@@ -55,9 +55,12 @@ export function getContactDisplayValue(contact: Contact) {
     case 'https':
     case 'ftp':
       return contact
-    default:
+    default: {
       // most contacts have a ${protocol}:${key} format (e.g. mailto:example@example.com, or tel://+123456789)
-      return contact.split(':')[1].replace(/^\/\//, '')
+      // for other contacts, just return the full contact
+      const splinters = contact.split(':')
+      return splinters[1] ? splinters[1].replace(/^\/\//, '') : contact
+    }
   }
 }
 
