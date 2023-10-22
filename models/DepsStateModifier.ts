@@ -1,5 +1,5 @@
-import { Mapper } from './Mapper'
-import { Modifier, ModifierP } from './Modifier'
+import { Mapper } from '../../utils/Mapper'
+import { Modifier, ModifierP } from '../../utils/Modifier'
 
 export type DepsStateModifier<Deps, State> = Mapper<Deps, Modifier<State>>
 
