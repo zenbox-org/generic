@@ -12,7 +12,7 @@ import { z } from 'zod'
  */
 export interface Tag {
   id: string
-  parent?: Tag
+  parent?: Tag | undefined
 }
 
 export const TagSchema: z.ZodSchema<Tag> = z.lazy(() => z.object({
