@@ -107,3 +107,5 @@ export const $tsmd = renderThoughtsMD
 export const $tlmd = renderThoughtLikeMD
 
 export const $tlsmd = renderThoughtLikesMD
+
+export const findByTitle = (title: string) => (options: Thought[]) => options.find(o => o.title.includes(title))
