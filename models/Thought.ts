@@ -1,6 +1,7 @@
 import { isArray, isString } from 'remeda'
 import { z } from 'zod'
 import { isEqualByD } from '../../utils/lodash'
+import { stub, todo } from '../../utils/todo'
 import { getDuplicatesRefinement } from '../../utils/zod'
 import { Id } from './Id'
 
@@ -19,13 +20,13 @@ export const ThoughtSchema: z.ZodSchema<Thought> = z.lazy(() => z.object({
 }).describe('Thought'))
 
 export const ThoughtsSchema = z.array(ThoughtSchema)
-  .superRefine(getDuplicatesRefinement('Thought', validateThoughtUid))
+  .superRefine(getDuplicatesRefinement('Thought', parseThoughtUid))
 
-export function validateThought(thought: Thought): Thought {
+export function parseThought(thought: Thought): Thought {
   return ThoughtSchema.parse(thought)
 }
 
-export function validateThoughts(thoughts: Thought[]): Thought[] {
+export function parseThoughts(thoughts: Thought[]): Thought[] {
   return ThoughtsSchema.parse(thoughts)
 }
 
@@ -39,14 +40,14 @@ export const ThoughtUidSchema = z.object({
 
 export type ThoughtUid = z.infer<typeof ThoughtUidSchema>
 
-export function validateThoughtUid(thoughtUid: ThoughtUid): ThoughtUid {
+export function parseThoughtUid(thoughtUid: ThoughtUid): ThoughtUid {
   return ThoughtUidSchema.parse(thoughtUid)
 }
 
-export const isEqualThought = (a: Thought) => (b: Thought) => isEqualByD(a, b, validateThoughtUid)
+export const isEqualThought = (a: Thought) => (b: Thought) => isEqualByD(a, b, parseThoughtUid)
 
 export function thought(title: string, children: ThoughtLike[] = []): Thought {
-  return validateThought({ title, children: children.map(thoughtLike) })
+  return parseThought({ title, children: children.map(thoughtLike) })
 }
 
 export function thoughtLikes(thoughtLikes: ThoughtLike[]) {
@@ -61,7 +62,7 @@ export function thoughtLike(t: ThoughtLike): Thought {
     const [title, children] = t
     return thought(title, children ?? [])
   }
-  return validateThought(t)
+  return parseThought(t)
 }
 
 /**
@@ -109,3 +110,13 @@ export const $tlmd = renderThoughtLikeMD
 export const $tlsmd = renderThoughtLikesMD
 
 export const findByTitle = (title: string) => (options: Thought[]) => options.find(o => o.title.includes(title))
+
+export const stubts = <V>(thoughtLikes: ThoughtLike[]) => {
+  const message = renderThoughtLikesMD(thoughtLikes)
+  return stub<V>(message)
+}
+
+export const todots = <V>(value: V, thoughtLikes: ThoughtLike[]) => {
+  const message = renderThoughtLikesMD(thoughtLikes)
+  return todo<V>(value, message)
+}
